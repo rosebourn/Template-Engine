@@ -1,4 +1,10 @@
 const inquirer = require("inquirer");
+// const Employee = require("./employee");
+// const Manager = require("./manager");
+// const Engineer = require("./engineer");
+// const Intern = require("./intern");
+const outputPath = "./output/main.html"
+const fs = require('fs');
 
 function promptEmployee() {
     inquirer
@@ -22,52 +28,55 @@ function promptEmployee() {
                 type: "list",
                 message: "What is your job title?",
                 name: "jobTitle",
-                choices: ["Manager", "Engineer", "Intern"]
+                choices: ["manager", "engineer", "intern"]
             }
         ])
 
         .then(function ({ employeeName, employeeId,employeeEmail, jobTitle }) {
             console.log(employeeName, employeeId, employeeEmail, jobTitle);
+               
+            if (jobTitle === "manager") {
+                inquirer
+                    .prompt([
+                        {
+                            type: "number", 
+                            name: "officeNumber",
+                            message: "Enter office number:"
+                        }
+                    ])
+                    .then(function ({ officeNumber }) {
+                        console.log(officeNumber);
+                        // fs.writeFileSync(outputPath, "<h1>Hello World</h1>", "utf-8")
+                    })
+            } else if (jobTitle === "engineer") {
+                inquirer
+                    .prompt([
+                        {
+                            type: "input",
+                            name: "github",
+                            message: "Enter GitHub username:"
+                        }
+                    ])
+                    .then(function ({ github }) {
+                        console.log(github);
+                    })
+            } else if (jobTitle === "intern") {
+                inquirer
+                    .prompt([
+                        {
+                            type: "input",
+                            name: "school",
+                            message: "Enter school name:"
+                        }
+                    ])
+                    .then(function ({ school }) {
+                        console.log(school);
+                    })
+            }
         });
     }
     
-    promptEmployee();
-  
+    promptEmployee();  
 
-        // if (job-title === Manager) {
-        //     function promptManager() {
-        //         inquirer
-        //             .prompt([
-        //                 {
-        //                     type: "number",
-        //                     message: "Enter office number:",
-        //                     name: "office-number"
-        //                 }
-        //             ])
-        //     }
-        // } else if (job-title === Engineer) {
-        //     function promptEngineer() {
-        //         inquirer
-        //             .prompt([
-        //                 {
-        //                     type: "input",
-        //                     message: "Enter GitHub username:",
-        //                     name: "github-username"
-        //                 }
-        //             ])
-        //     }
-        // } else if (job-title === Intern) {
-        //     function promptIntern() {
-        //         inquirer
-        //             .prompt([
-        //                 {
-        //                 type: "input",
-        //                 message: "Enter school:",
-        //                 name: "intern-school"
-        //             }
-        //             ])
-        //     }
-        // }
-
-
+// fs.writeFileSync(outputPath, "<h1>Hello World</h1>", "utf-8")
 
