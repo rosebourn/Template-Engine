@@ -1,10 +1,12 @@
 const inquirer = require("inquirer");
-// const Employee = require("./employee");
-// const Manager = require("./manager");
-// const Engineer = require("./engineer");
-// const Intern = require("./intern");
-const outputPath = "./output/main.html"
-const fs = require('fs');
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
+const outputPath = "./output/main.html";
+const generateManager = require("./templates/managerTemplate");
+const generateEngineer = require("./templates/engineerTemplate");
+const generateIntern = require("./templates/internTemplate");
+let myTeam = [];
 
 function promptEmployee() {
     inquirer
@@ -46,7 +48,9 @@ function promptEmployee() {
                     ])
                     .then(function ({ officeNumber }) {
                         console.log(officeNumber);
-                        // fs.writeFileSync(outputPath, "<h1>Hello World</h1>", "utf-8")
+                        var newMember = new Manager(employeeName, employeeId,employeeEmail, officeNumber)
+                        myTeam.push(newMember);
+                        anotherEmp();
                     })
             } else if (jobTitle === "engineer") {
                 inquirer
@@ -59,6 +63,9 @@ function promptEmployee() {
                     ])
                     .then(function ({ github }) {
                         console.log(github);
+                        var newMember = new Engineer(employeeName, employeeId,employeeEmail, github)
+                        myTeam.push(newMember);
+                        anotherEmp();
                     })
             } else if (jobTitle === "intern") {
                 inquirer
@@ -71,12 +78,68 @@ function promptEmployee() {
                     ])
                     .then(function ({ school }) {
                         console.log(school);
+                        var newMember = new Intern(employeeName, employeeId,employeeEmail, school)
+                        myTeam.push(newMember);
+                        anotherEmp();
                     })
             }
         });
+
     }
+
+    function anotherEmp() {
+        inquirer
+                    .prompt([
+                        {
+                            type: "list",
+                            message: "Would you like to add another employee?",
+                            name: "add",
+                            choices: ["yes", "no"]
+                        }
+                    ])
+                    .then(function ({ add }) {
+                        if (add === "yes") {
+                          promptEmployee();
+                        } else {
+                          console.log("Building Team");
+                          console.log(myTeam);
+                        //   buildTeam();
+                        
+                        }
+                        
+                    })
+                   }
+
+        // function buildTeam() {
+        //     if (new Engineer) {
+        //         generateEngineer;
+        //         $("#engineer-card").text(myTeam[i]);
+        //         $("#engineer-card").append()
+        //     } else if (new Manager) {
+        //         generateManager;
+        //     } else if (new Intern) {
+        //         generateIntern;
+        //     }
+        // }
+    
+
+    // function buildTeam() {
+    //     for (var i = 0; i < myTeam.length; i++) {
+    //         var managerCard = $("#manager-card");
+    //         var engineerCard = $("#engineer-card");
+    //         var internCard = $("#intern-card");
+
+    //         managerCard.text(myTeam[i]);
+    //         engineerCard.text(myTeam[i]);
+    //         internCard.text(myTeam[i]);
+
+    //         $("#manger-card").append(managerCard);
+    //         $("#engineer-card").append(engineerCard);
+    //         $("#intern-card").append(internCard);
+    //     }
+    // }
     
     promptEmployee();  
+   
 
-// fs.writeFileSync(outputPath, "<h1>Hello World</h1>", "utf-8")
 
