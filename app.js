@@ -2,8 +2,8 @@ const inquirer = require("inquirer");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
-const outputPath = "./output/main.html";
-const generateManager = require("./templates/managerTemplate");
+// const outputPath = "./output/main.html";
+const generateTeam = require("./templates/managerTemplate");
 const generateEngineer = require("./templates/engineerTemplate");
 const generateIntern = require("./templates/internTemplate");
 let myTeam = [];
@@ -103,12 +103,35 @@ function promptEmployee() {
                         } else {
                           console.log("Building Team");
                           console.log(myTeam);
-                        //   buildTeam();
+                          buildTeam(myTeam);
                         
                         }
                         
                     })
                    }
+
+        async function buildTeam(myTeam) {
+            console.log(buildEngineer(myTeam));
+            var engineers = await buildEngineer(myTeam);
+            // var managers = await buildManager(myManagers);
+            // var interns = await buildIntern(myInterns);
+
+            // var html = buildHTML(engineers, managers, interns);
+            // FS goes here writeFile
+        }
+
+        function buildEngineer(myEngineers) {
+            var engiCards;
+
+            if (myEngineers.length > 0) {
+                for (i = 0; i < myEngineers.length; i++) {
+                    engiCards += generateEngineer(myEngineers[i].name, myEngineers[i].id, myEngineers[i].email, myEngineers[i].github);
+                }
+                return engiCards;
+            } else {
+                return '';
+            }
+        }
 
         // function buildTeam() {
         //     if (new Engineer) {
