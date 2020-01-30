@@ -118,15 +118,12 @@ function anotherEmp() {
       if (add === "yes") {
         promptEmployee();
       } else {
-        console.log("Building Team");
-        // console.log(myTeam);
         buildTeam();
       }
     });
 }
 
 async function buildTeam() {
-//   console.log(buildEngineer());
   var engineers = await buildEngineer(myEngineers);
   var managers = await buildManager(myManagers);
   var interns = await buildIntern(myInterns);

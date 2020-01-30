@@ -13,13 +13,50 @@ function buildHTML(engineerCards, mangagerCards, internCards) {
     />
     <title>My Team!</title>
   </head>
-  <body>
-    <div id="team-cards">
-      <div class="engi-cards">${engineerCards}</div>
+  <style>
+    h1 {
+      font-size: 56px;
+      background: red;
+      color: white;
+      text-align: center;
+      padding: 18px;
+    }
 
-      <div id="mangi-cards">${mangagerCards}</div>
-      
-      <div id="inti-cards">${internCards}</div>
+    .card-header {
+      font-size: 28px;
+      text-align: center;
+    }
+
+    h5 {
+      font-size: 18px;
+    }
+
+    .column-left {
+      float: left;
+      width: 33.333%;
+    }
+
+    .column-center {
+      display: inline-block;
+      width: 33.333%;
+    }
+
+    .column-right {
+      float: right;
+      width: 33.333%;
+    }
+
+    .team-card {
+      padding: 20px;
+    }
+  </style>
+  <body>
+  <h1>My Team</h1>
+
+    <div id="team-card>
+        <div id="mangi-cards" class="column-left">${mangagerCards}</div>
+        <div id="engi-cards" class="column-center">${engineerCards}</div>
+        <div id="inti-cards" class="column-right">${internCards}</div>
     </div>
 
     <script

@@ -12,39 +12,76 @@
     />
     <title>My Team!</title>
   </head>
-  <body>
-    <div id="team-cards">
-      <div class="engi-cards">undefined
-    <div class="card text-white bg-primary mb-3 shadow" style="max-width: 18rem;">
-    <div class="card-header">Sadie<br>Engineer</div>
-        <div class="card-body p-3 mb-2 bg-light text-dark">
-            <h5 class="card-title">ID: 2</h5>
-            <h5 class="card-title">Email: sadie@gmail.com</h5>
-            <h5 class="card-title">GitHub: sadiegithub</h5>
-        </div>
-    </div>
-</div>
-    </div>
+  <style>
+    h1 {
+      font-size: 56px;
+      background: red;
+      color: white;
+      text-align: center;
+      padding: 18px;
+    }
 
-      <div id="mangi-cards">undefined
+    .card-header {
+      font-size: 28px;
+      text-align: center;
+    }
+
+    h5 {
+      font-size: 18px;
+    }
+
+    .column-left {
+      float: left;
+      width: 33.333%;
+    }
+
+    .column-center {
+      display: inline-block;
+      width: 33.333%;
+    }
+
+    .column-right {
+      float: right;
+      width: 33.333%;
+    }
+
+    .team-card {
+      padding: 20px;
+    }
+  </style>
+  <body>
+  <h1>My Team</h1>
+
+    <div id="team-card>
+        <div id="mangi-cards" class="column-left">undefined
     <div class="card text-white bg-primary mb-3 shadow" style="max-width: 18rem;">
-    <div class="card-header">Clark<br>Manager</div>
+    <div class="card-header">Nicolas<br>Manager</div>
         <div class="card-body p-3 mb-2 bg-light text-dark">
-            <h5 class="card-title">ID: 56</h5>
-            <h5 class="card-title">Email: clark@gmail.com</h5>
+            <h5 class="card-title">ID: 54</h5>
+            <h5 class="card-title">Email: nic@gmail.com</h5>
             <h5 class="card-title">Office Number: 43</h5>
         </div>
     </div>
 </div>
     </div>
-      
-      <div id="inti-cards">undefined
+        <div id="engi-cards" class="column-center">undefined
     <div class="card text-white bg-primary mb-3 shadow" style="max-width: 18rem;">
-    <div class="card-header">Nic<br>Intern</div>
+    <div class="card-header">Clark<br>Engineer</div>
         <div class="card-body p-3 mb-2 bg-light text-dark">
             <h5 class="card-title">ID: 12</h5>
-            <h5 class="card-title">Email: nic@gmail.com</h5>
-            <h5 class="card-title">School: Clemson</h5>
+            <h5 class="card-title">Email: clark@yahoo.com</h5>
+            <h5 class="card-title">GitHub: clarkgithub</h5>
+        </div>
+    </div>
+</div>
+    </div>
+        <div id="inti-cards" class="column-right">undefined
+    <div class="card text-white bg-primary mb-3 shadow" style="max-width: 18rem;">
+    <div class="card-header">Sadie<br>Intern</div>
+        <div class="card-body p-3 mb-2 bg-light text-dark">
+            <h5 class="card-title">ID: 3</h5>
+            <h5 class="card-title">Email: sadie@gmail.com</h5>
+            <h5 class="card-title">School: Gonzaga</h5>
         </div>
     </div>
 </div>
