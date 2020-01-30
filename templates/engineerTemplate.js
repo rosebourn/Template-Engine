@@ -1,7 +1,5 @@
-
-
 function generateEngineer(name, id, email, github) {
-    return `
+  return `
     <div class="card text-white bg-primary mb-3 shadow" style="max-width: 18rem;">
     <div class="card-header">${name}<br>Engineer</div>
         <div class="card-body p-3 mb-2 bg-light text-dark">
@@ -11,7 +9,7 @@ function generateEngineer(name, id, email, github) {
         </div>
     </div>
 </div>
-    `
+    `;
 }
 
 module.exports = generateEngineer;
